@@ -1,33 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import Hero from "@/components/Hero";
+import Intro from "@/components/Intro";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-50">
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="text-5xl font-bold text-gray-800"
+    <main className="relative">
+      <section 
+        className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative"
+        style={{ backgroundImage: 'url(/bg.png)' }}
       >
-        Hello Framer Motion 👋
-      </motion.h1>
-      
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="mt-8"
-      >
-        <Link
-          href="/work"
-          className="text-lg text-gray-700 hover:text-gray-900 transition-colors border-b-2 border-transparent hover:border-gray-900 pb-1"
-        >
-          View My Work →
-        </Link>
-      </motion.div>
+        <div className="absolute inset-0 bg-black/30"></div>
+        
+        <div className="relative z-10 text-center text-white px-6">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6">
+            Your Name
+          </h1>
+          <p className="text-xl md:text-2xl mb-8">
+            Developer | Designer | Creator
+          </p>
+          <div className="flex justify-center">
+            <button className="px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-gray-900 transition-colors rounded-lg">
+              Scroll to Explore
+            </button>
+          </div>
+        </div>
+      </section>
+      <Hero />
+      <Intro />
     </main>
   );
 }
